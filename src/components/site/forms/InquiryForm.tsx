@@ -134,7 +134,7 @@ export function InquiryForm({ prefill }: { prefill?: string | undefined }) {
       <div className="mt-8 space-y-6">
         <SubmitButton loading={loading}>Send My Custom Inquiry</SubmitButton>
         <div aria-live="polite">
-          {result && result.status !== "sent" ? (
+          {result ? (
             <DeliveryNotice state={result.status} errorMessage={result.message} summary={result.summary} subject="Custom Piece Inquiry" />
           ) : null}
         </div>

@@ -29,6 +29,28 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
+const giftCls = "group flex items-center justify-between gap-6 py-7 md:py-9";
+
+function GiftLink({ item, children }: { item: (typeof GIFTING)[number]; children: React.ReactNode }) {
+  if (item.collection)
+    return (
+      <Link to="/shop/$category" params={{ category: item.collection }} className={giftCls}>
+        {children}
+      </Link>
+    );
+  if (item.filter)
+    return (
+      <Link to="/shop" search={{ collection: item.filter }} className={giftCls}>
+        {children}
+      </Link>
+    );
+  return (
+    <Link to="/custom-engraving" search={{}} className={giftCls}>
+      {children}
+    </Link>
+  );
+}
+
 function Home() {
   return (
     <>
@@ -173,11 +195,7 @@ function Home() {
             {GIFTING.map((g, i) => (
               <Reveal as="li" key={g.title} delayStep={i}>
                 <KerfLine label={`0${i + 1}`} />
-                <Link
-                  to={g.to}
-                  search={"search" in g ? g.search : undefined}
-                  className="group flex items-center justify-between gap-6 py-7 md:py-9"
-                >
+                <GiftLink item={g}>
                   <div>
                     <h3 className="font-display text-[clamp(1.6rem,3.4vw,2.75rem)] leading-tight text-walnut transition-colors group-hover:text-ember">
                       {g.title}
@@ -188,7 +206,7 @@ function Home() {
                     className="size-7 shrink-0 text-maple-2 transition-transform duration-200 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-ember"
                     aria-hidden="true"
                   />
-                </Link>
+                </GiftLink>
               </Reveal>
             ))}
           </ul>

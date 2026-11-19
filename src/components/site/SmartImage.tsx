@@ -27,8 +27,7 @@ export function SmartImage({ src, alt, width, height, className, position = "50%
       height={height}
       loading={eager ? "eager" : "lazy"}
       decoding={eager ? "sync" : "async"}
-      // @ts-expect-error fetchpriority is valid HTML; React 19 accepts the lowercase attribute
-      fetchpriority={eager ? "high" : undefined}
+      fetchPriority={eager ? "high" : "auto"}
       onError={() => setFailed(true)}
       className={cn("h-full w-full object-cover", className)}
       style={{

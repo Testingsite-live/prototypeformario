@@ -68,7 +68,7 @@ export function ContactForm() {
       <div className="mt-8 space-y-6">
         <SubmitButton loading={loading}>Send Message</SubmitButton>
         <div aria-live="polite">
-          {result && result.status !== "sent" ? (
+          {result ? (
             <DeliveryNotice state={result.status} errorMessage={result.message} summary={result.summary} subject={f.values.subject} />
           ) : null}
         </div>

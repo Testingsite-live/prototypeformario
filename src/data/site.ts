@@ -391,11 +391,11 @@ export const PROCESS_STEPS = [
 ];
 
 export const GIFTING = [
-  { title: "Weddings and anniversaries", body: "Keepsake boxes and boards with names and a date.", to: "/shop", search: { collection: "designer-boxes" as CollectionSlug } },
-  { title: "Housewarmings", body: "A board for the new kitchen, engraved with the family name.", to: "/shop/cutting-boards" },
-  { title: "Holiday gifts", body: "Ornaments, gift sets, and seasonal serving boards.", to: "/shop/holiday-gifts" },
-  { title: "Corporate and client gifts", body: "Small batches with your logo or a short message.", to: "/custom-engraving" },
-] as const;
+  { title: "Weddings and anniversaries", body: "Keepsake boxes and boards with names and a date.", filter: "designer-boxes" },
+  { title: "Housewarmings", body: "A board for the new kitchen, engraved with the family name.", collection: "cutting-boards" },
+  { title: "Holiday gifts", body: "Ornaments, gift sets, and seasonal serving boards.", collection: "holiday-gifts" },
+  { title: "Corporate and client gifts", body: "Small batches with your logo or a short message.", custom: true },
+] as { title: string; body: string; filter?: CollectionSlug; collection?: CollectionSlug; custom?: boolean }[];
 
 /* ---------- FAQ ---------- */
 export const FAQS = [

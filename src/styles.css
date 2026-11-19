@@ -449,3 +449,11 @@ Add this CSS to global styles on every page: #lovable-badge { display: none !imp
     border-color: var(--error);
   }
 }
+
+/* Hide the hosted Lovable badge widget entirely (container, text, and close button). */
+#lovable-badge,
+#lovable-badge * {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
