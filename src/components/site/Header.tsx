@@ -18,7 +18,8 @@ function Logo({ light }: { light: boolean }) {
         K&amp;C
       </span>
       <span className={cn("font-display text-lg font-semibold leading-none tracking-tight sm:text-xl", light ? "text-on-dark" : "text-walnut")}>
-        {BRAND.name}
+        <span className="sm:hidden">{BRAND.shortName}</span>
+        <span className="hidden sm:inline">{BRAND.name}</span>
       </span>
     </Link>
   );

@@ -29,7 +29,7 @@ export function HeroVideo({ children }: { children: ReactNode }) {
   };
 
   return (
-    <section className="relative isolate flex h-[82svh] min-h-[560px] items-end overflow-hidden bg-walnut md:h-[88vh] md:min-h-[620px] md:items-center">
+    <section className="relative isolate flex min-h-[82svh] items-end overflow-hidden bg-walnut md:h-[88vh] md:min-h-[620px] md:items-center">
       <div className="absolute inset-0 -z-10">
         {hasVideo ? (
           <video

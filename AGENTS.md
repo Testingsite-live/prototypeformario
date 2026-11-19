@@ -28,3 +28,11 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- All site content (brand, nav, products, prices, price modifiers, FAQs, copy) lives in `src/data/site.ts`; pages read from it so the owner can edit in one place.
+- Three templates cover most pages: `CollectionPage`, `ProductPage`, `ContentPage` in `src/components/templates/`; reuse them for new shop or text pages.
+- Forms send only through `submitForm()` in `src/lib/forms.ts` (endpoint from `VITE_FORM_ENDPOINT`); never show "sent" unless the request succeeded, and never clear the cart otherwise.
+- Cart is browser-only (localStorage via `src/lib/cart.tsx`); no database, accounts, or payments unless the owner asks.
+- Empty `BRAND.email`/`phone`/`social` and `HERO.videoSrc` must hide their UI, never show placeholders.
+- Styling uses semantic tokens and `@utility` classes in `src/styles.css` (btn-primary, kerf line, end-grain); no raw color classes in components.
